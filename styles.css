@@ -1,0 +1,26 @@
+.container {
+    margin: auto;
+    width: 40vw;
+    display: grid;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.letterBox{
+    border: solid grey;
+    background-color: khaki;
+    height:  8vh;
+    line-height: 8vh;
+    width: 4vw;
+    text-align: center;
+}
+
+.guessForm{
+    margin: auto;
+}
