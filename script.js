@@ -1,4 +1,4 @@
-console.log("test")
+let secretWord = "apple"
 
 let container = document.getElementsByClassName("container")[0]
 let divs = []
@@ -17,3 +17,40 @@ while (i < 6){
     }
     i++
 }
+
+function guessWord(guess){
+    let results = []
+    for (var i = 0 ; i < guess.length; i++){
+        results.push(letterAppearsInSecretWord(guess, i))
+    }
+    console.log(results)
+}
+
+function letterAppearsInSecretWord(word, letterIndex){
+    letter = word[letterIndex]
+    let letterFound = false
+    let greenFlag = false
+    let yellowFlag = false
+    //iterate through all letters in the secret word to see if the letter from the guess is there
+    for (var i = 0; i < secretWord.length; i++){
+        if (secretWord[i] === letter){
+            if (letterIndex === i){
+                greenFlag = true
+                console.log("the " + letter + " character at position " + (i+1) + " is correct")
+            } else {
+                yellowFlag = true
+                console.log("the " + letter + " character is in the secret word, but not at position " + (i+1))
+            }
+        } 
+    }
+    if (greenFlag){
+        return "G"
+    } else if (yellowFlag){
+        return "Y"
+    }
+    else{
+        return "-"
+        console.log("the " + letter + " character is in not the secret word")
+    }
+}
+
