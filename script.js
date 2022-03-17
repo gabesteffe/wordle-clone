@@ -1,21 +1,46 @@
-let secretWord = "apple"
+let secretWord = "snore"
 
+let submitBtn = document.getElementById("submitBtn")
+let guessText = document.getElementById("guessText")
 let container = document.getElementsByClassName("container")[0]
 let divs = []
-let i = 0
-while (i < 6){ 
-    const rowDiv = document.createElement("div" + i)
-    rowDiv.classList.add("row")
-    container.appendChild(rowDiv)
-    let j = 0
-    while (j < 5){
-        const div = document.createElement("div")
-        div.classList.add("letterBox")
-        div.innerText = "div"
-        rowDiv.appendChild(div)
-        j++
+let guessCounter = 0
+
+function main(){
+    populateDivs();
+    submitBtn.onclick = () => {
+        guess = guessText.value
+        if (validateGuess(guess)){
+            let results = guessWord(guess)
+            updateRow(guess, results)
+            guessCounter++
+        } else {
+            console.log(`That guess was not valid, please submit a guess with ${secretWord.length} characters`)
+        }
     }
-    i++
+}
+
+function validateGuess(guess){
+    return (guess.length === secretWord.length ? true : false)
+}
+
+function populateDivs(){
+    let i = 0
+    while (i < 6){ 
+        const rowDiv = document.createElement("div")
+        rowDiv.classList.add("row")
+        container.appendChild(rowDiv)
+        let j = 0
+        while (j < 5){
+            const div = document.createElement("div")
+            div.classList.add("letterBox")
+            div.innerText = "div"
+            rowDiv.appendChild(div)
+            j++
+        }
+        divs.push(rowDiv)
+        i++
+    }
 }
 
 function guessWord(guess){
@@ -23,7 +48,7 @@ function guessWord(guess){
     for (var i = 0 ; i < guess.length; i++){
         results.push(letterAppearsInSecretWord(guess, i))
     }
-    console.log(results)
+    return results
 }
 
 function letterAppearsInSecretWord(word, letterIndex){
@@ -54,3 +79,16 @@ function letterAppearsInSecretWord(word, letterIndex){
     }
 }
 
+function updateRow(guessWord, results){
+    for (i = 0; i < guessWord.length ; i++){
+        let letterTile = divs[guessCounter].children[i]
+        letterTile.innerText = guess[i]
+        if (results[i] === 'G'){
+            letterTile.style.color = 'Green'
+        } else if (results[i] === 'Y'){
+            letterTile.style.color = 'Yellow'
+        }
+    }
+}
+
+main()
