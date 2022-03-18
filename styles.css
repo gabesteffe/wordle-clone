@@ -21,6 +21,32 @@
     text-align: center;
 }
 
+.yellowLetterBox{
+    background-color: yellow;
+}
+
+.greenLetterBox{
+    background-color: green;
+}
+
+.keyboardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboardKey{
+    border: solid black;
+    background-color: rgb(104, 103, 103);
+    height:  8vh;
+    line-height: 8vh;
+    width: 4vw;
+    text-align: center;
+    margin: 0.5em;
+}
+
 .guessForm{
+    width: 50%;
     margin: auto;
 }

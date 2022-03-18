@@ -3,11 +3,13 @@ let secretWord = "snore"
 let submitBtn = document.getElementById("submitBtn")
 let guessText = document.getElementById("guessText")
 let container = document.getElementsByClassName("container")[0]
+let keyboardContainer = document.getElementsByClassName("keyboardContainer")[0]
 let divs = []
 let guessCounter = 0
 
 function main(){
     populateDivs();
+    populateKeyboard();
     submitBtn.onclick = () => {
         guess = guessText.value
         if (validateGuess(guess)){
@@ -25,21 +27,29 @@ function validateGuess(guess){
 }
 
 function populateDivs(){
-    let i = 0
-    while (i < 6){ 
+    for (var i = 0; i < 6; i++){
         const rowDiv = document.createElement("div")
         rowDiv.classList.add("row")
         container.appendChild(rowDiv)
-        let j = 0
-        while (j < 5){
+        for (var j = 0; j < 5; j++){
             const div = document.createElement("div")
             div.classList.add("letterBox")
-            div.innerText = "div"
             rowDiv.appendChild(div)
-            j++
         }
         divs.push(rowDiv)
-        i++
+    }
+}
+
+function populateKeyboard(){
+    for (var i = 0; i < 26; i++){
+        const letterKey = document.createElement("div")
+        letter = String.fromCharCode(97 + i);
+        letterKey.innerText = letter
+        letterKey.classList.add("keyboardKey")
+        letterKey.onclick = (event) => {
+            guessText.value = guessText.value + event.target.innerText
+        }
+        keyboardContainer.appendChild(letterKey)
     }
 }
 
@@ -84,9 +94,9 @@ function updateRow(guessWord, results){
         let letterTile = divs[guessCounter].children[i]
         letterTile.innerText = guess[i]
         if (results[i] === 'G'){
-            letterTile.style.color = 'Green'
+            letterTile.classList.add('greenLetterBox')
         } else if (results[i] === 'Y'){
-            letterTile.style.color = 'Yellow'
+            letterTile.classList.add('yellowLetterBox')
         }
     }
 }
