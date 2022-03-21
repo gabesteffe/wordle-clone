@@ -1,2 +1,2 @@
 # wordle-clone
-Aclone of the popular browser game Wordle
+A clone of the popular browser game Wordle
