@@ -46,7 +46,22 @@
     margin: 0.5em;
 }
 
+.outsideOfSolution{
+    background-color: rgb(0, 0, 0, 0.8);
+}
+
 .guessForm{
     width: 50%;
     margin: auto;
+}
+
+.winningDiv{
+    animation-name: winAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes winAnimation{
+    0% {background-color:red; top: 0px;}
+    50% {background-color:blue; top: 200px;}
+    100% {background-color:green; top: 0px;}
 }
