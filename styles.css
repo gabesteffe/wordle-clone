@@ -56,12 +56,20 @@
 }
 
 .winningDiv{
+    position: relative;
     animation-name: winAnimation;
     animation-duration: 2s;
-}
+}   
 
 @keyframes winAnimation{
-    0% {background-color:red; top: 0px;}
-    50% {background-color:blue; top: 200px;}
-    100% {background-color:green; top: 0px;}
+    0% {background-color:rgba(0, 128, 0, 0); bottom: 0px;}
+    20% {background-color:rgba(0, 128, 0, 0.4); bottom: 25px;}
+    30% {background-color:rgba(0, 128, 0, 0.4); bottom: 25px;}
+    40% {background-color:rgba(0, 128, 0, 0.6); bottom: 0px;}
+    50% {background-color:rgba(0, 128, 0, 0.7); bottom: 10px;}
+    60% {background-color:rgba(0, 128, 0, 0.8); bottom: 0px;}
+    70% {background-color:rgba(0, 128, 0, 0.9); bottom: 5px;}
+    80% {background-color:rgba(0, 128, 0); bottom: 0px;}
+    90% {background-color:rgba(0, 128, 0); bottom: 3px;}
+    100% {background-color:green; bottom: 0px;}
 }

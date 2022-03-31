@@ -137,6 +137,7 @@ function evaluateGameState(guessResults){
     }
     if (winningGuess){
         revokeSubmitBtnFunctionality()
+        playWinAnimation()
         console.log("congrats, you won!")
     } else {
         if (guessCounter === guessLimit){
@@ -164,6 +165,12 @@ function updateRow(guessWord, results){
         } else if (results[i] === 'Y'){
             letterTile.classList.add('yellowLetterBox')
         }
+    }
+}
+
+function playWinAnimation(){
+    for (tile of divs[guessCounter].children){
+        tile.classList.add("winningDiv")
     }
 }
 
