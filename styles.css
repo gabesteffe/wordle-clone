@@ -1,23 +1,25 @@
 .container {
+    font-size: xx-large;
     margin: auto;
+    margin-top: 4vw;
     width: 40vw;
     display: grid;
     grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 10px;
 }
 
 .row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 5px;
 }
 
 .letterBox{
     border: solid grey;
     background-color: darkgray;
-    height:  8vh;
-    line-height: 8vh;
-    width: 4vw;
+    height:  6vh;
+    line-height: 6vh;
+    width: 5vw;
     text-align: center;
 }
 
@@ -37,13 +39,14 @@
 }
 
 .keyboardKey{
+    font-size: xx-large;
     border: solid black;
-    background-color: rgb(104, 103, 103);
+    background-color: rgb(126, 125, 125);
     height:  8vh;
     line-height: 8vh;
     width: 4vw;
     text-align: center;
-    margin: 0.5em;
+    margin: 0.25em;
 }
 
 .outsideOfSolution{
@@ -51,8 +54,25 @@
 }
 
 .guessForm{
-    width: 50%;
-    margin: auto;
+    width: fit-content;
+    padding: 1em;
+    margin: 0.5em auto;
+}
+
+#guessText{
+    font-size: large;
+    display: block;
+    margin: 0.25em auto;
+}
+
+#submitBtn{
+    display: block;
+    margin: 0.25em auto;
+    text-align: center;
+    background-color: lightblue;
+    font-size: large;
+    border: none;
+    padding: 10px 10px;
 }
 
 .winningDiv{
